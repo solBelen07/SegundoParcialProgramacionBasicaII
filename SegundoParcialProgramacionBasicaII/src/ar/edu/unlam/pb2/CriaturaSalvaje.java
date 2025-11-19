@@ -8,14 +8,20 @@ public class CriaturaSalvaje extends Criatura {
 	}
 
 	@Override
-	public void entrenar(Integer intensidad) {
+	public void entrenar(Integer intensidad) throws EnergiaExcedidaException{
 		Integer aumento = intensidad * (1 + (int) (Math.random() * 2));
 		// el math random devuelve un numero entre 0 y 2, sin incluir al 2, se suma uno
 		// para que nunca sea 0 el aumento cuando se castea con el int
 
-		this.nivelDeEnergia += aumento;
+		Integer nuevaEnergia = (this.nivelDeEnergia += aumento);
+
+		if (nuevaEnergia > 200) {
+			throw new EnergiaExcedidaException(
+					"Su criatura a extendido el limite de energia permitido");
+		}
+
 	}
-	
+
 	@Override
 	public void esPacifico(Boolean afinidadElemental) {
 		this.inestable = true;
