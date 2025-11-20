@@ -1,8 +1,14 @@
 package ar.edu.unlam.pb2.parcial;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+import java.util.List;
 
 class InteraccionTest {
 
@@ -15,8 +21,8 @@ class InteraccionTest {
 		
 		nueva.interactuar(otra);
 		
-		assertEquals(nueva.getNivelDeEnergia(), (energiaInicialNueva + 10));
-		assertEquals(otra.getNivelDeEnergia(), (energiaInicialOtra + 10));
+		assertEquals(nueva.getNivelDeEnergia(), (energiaInicialNueva + 10), 0);
+		assertEquals(otra.getNivelDeEnergia(), (energiaInicialOtra + 10), 0);
 		
 	}
 	
@@ -54,8 +60,8 @@ class InteraccionTest {
 		
 		nueva.interactuar(otra);
 		
-		assertEquals(nueva.getNivelDeEnergia(), (energiaInicialNueva + 20));
-		assertEquals(otra.getNivelDeEnergia(), (energiaInicialOtra - 15));
+		assertEquals(nueva.getNivelDeEnergia(), (energiaInicialNueva + 20), 0);
+		assertEquals(otra.getNivelDeEnergia(), (energiaInicialOtra - 15), 0);
 	}
 	
 	@Test
@@ -68,8 +74,8 @@ class InteraccionTest {
 		
 		nueva.interactuar(otra);
 		
-		assertEquals(otra.getNivelDeEnergia(), (energiaInicialOtra + 20));
-		assertEquals(nueva.getNivelDeEnergia(), (energiaInicialNueva - 15));
+		assertEquals(otra.getNivelDeEnergia(), (energiaInicialOtra + 20), 0);
+		assertEquals(nueva.getNivelDeEnergia(), (energiaInicialNueva - 15), 0);
 	}
 	
 	@Test
@@ -82,8 +88,8 @@ class InteraccionTest {
 		
 		nueva.interactuar(otra);
 		
-		assertEquals(nueva.getNivelDeEnergia(), (energiaInicialNueva + 20));
-		assertEquals(otra.getNivelDeEnergia(), (energiaInicialOtra - 15));
+		assertEquals(nueva.getNivelDeEnergia(), (energiaInicialNueva + 20), 0);
+		assertEquals(otra.getNivelDeEnergia(), (energiaInicialOtra - 15), 0);
 		
 		assertEquals(nueva.getInestable(), true);
 		assertEquals(otra.getInestable(), true);
