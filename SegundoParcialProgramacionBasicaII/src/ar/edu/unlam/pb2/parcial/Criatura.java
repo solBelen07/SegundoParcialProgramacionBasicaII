@@ -1,5 +1,7 @@
 package ar.edu.unlam.pb2.parcial;
 
+import java.util.Objects;
+
 public abstract class Criatura implements Interaccion {
 
 	protected String nombre;
@@ -84,4 +86,6 @@ public abstract class Criatura implements Interaccion {
 		this.inestable = inestable;
 	}
 
+	
+	
 }
