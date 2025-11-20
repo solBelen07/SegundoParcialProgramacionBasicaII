@@ -1,4 +1,4 @@
-package ar.edu.unlam.pb2;
+package ar.edu.unlam.pb2.parcial;
 
 import java.util.HashMap;
 

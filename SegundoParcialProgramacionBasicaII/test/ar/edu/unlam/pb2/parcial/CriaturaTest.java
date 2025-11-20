@@ -1,8 +1,13 @@
-package ar.edu.unlam.pb2;
+package ar.edu.unlam.pb2.parcial;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+import ar.edu.unlam.pb2.parcial.Criatura;
+import ar.edu.unlam.pb2.parcial.CriaturaDomestica;
+import ar.edu.unlam.pb2.parcial.CriaturaSalvaje;
+import ar.edu.unlam.pb2.parcial.EnergiaExcedidaException;
 
 class CriaturaTest {
 

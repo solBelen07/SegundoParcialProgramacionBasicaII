@@ -1,16 +1,18 @@
-package ar.edu.unlam.pb2;
+package ar.edu.unlam.pb2.parcial;
 
-public class CriaturaAncestral extends Criatura {
+public class CriaturaDomestica extends Criatura {
 
-	public CriaturaAncestral(String nombre, Integer nivelDeEnergia, String afinidadElemental) {
+	public CriaturaDomestica(String nombre, Integer nivelDeEnergia, String afinidadElemental) {
 		super(nombre, nivelDeEnergia, afinidadElemental);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void entrenar(Integer intensidad) {
-		Integer aumento = intensidad * (1 + (int) (Math.random() * 1));
+
+		Integer aumento = intensidad * (1 + (int) (Math.random() * 2));
 		this.nivelDeEnergia += aumento;
+
 	}
 
 	@Override
