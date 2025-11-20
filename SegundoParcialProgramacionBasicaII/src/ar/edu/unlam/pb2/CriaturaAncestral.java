@@ -1,8 +1,8 @@
 package ar.edu.unlam.pb2;
 
-public class CriaturasAncestrales extends Criatura {
+public class CriaturaAncestral extends Criatura {
 
-	public CriaturasAncestrales(String nombre, Integer nivelDeEnergia, String afinidadElemental) {
+	public CriaturaAncestral(String nombre, Integer nivelDeEnergia, String afinidadElemental) {
 		super(nombre, nivelDeEnergia, afinidadElemental);
 		// TODO Auto-generated constructor stub
 	}

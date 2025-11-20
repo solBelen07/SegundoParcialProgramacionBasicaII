@@ -1,6 +1,6 @@
 package ar.edu.unlam.pb2;
 
-public abstract class Criatura {
+public abstract class Criatura implements Interaccion{
 
 	protected String nombre;
 	protected Integer nivelDeEnergia;
@@ -15,10 +15,38 @@ public abstract class Criatura {
 	}
 	
 	public abstract void entrenar(Integer intensidad) throws EnergiaExcedidaException;
-
-	public void esPacifico(Boolean inestable) {
-	    this.inestable = inestable;
+	public abstract void esPacifico(Boolean inestable);
+	
+	
+	public void interactuar(Criatura otra) {
+		//si comparten afinidad
+		if(this.getAfinidadElemental().toLowerCase().equals(otra.getAfinidadElemental())) {
+			this.setNivelDeEnergia(this.nivelDeEnergia += 10);
+			otra.setNivelDeEnergia(otra.nivelDeEnergia += 10);
+			return;
+		}
+		// Si son opuestas (agua–fuego / aire–tierra)
+		if((this.getAfinidadElemental().toLowerCase().equals("agua") && 
+				otra.getAfinidadElemental().toLowerCase().equals("fuego")) || 
+				(this.getAfinidadElemental().toLowerCase().equals("aire") && 
+						otra.getAfinidadElemental().toLowerCase().equals("tierra"))){
+			this.setInestable(true);
+			otra.setInestable(true);
+			return;
+		}
+		//si una es ancestral siempre domina la situacion, gana 20e y la otra pierde 15e
+		if(this instanceof CriaturaAncestral) {
+			this.setNivelDeEnergia(this.nivelDeEnergia += 20);
+			otra.setNivelDeEnergia(otra.nivelDeEnergia -= 15);
+			return;
+		}
+		if(otra instanceof CriaturaAncestral) {
+			otra.setNivelDeEnergia(otra.nivelDeEnergia += 20);
+			this.setNivelDeEnergia(this.nivelDeEnergia -= 15);
+			return;
+		}
 	}
+
 	public String getNombre() {
 		return nombre;
 	}
