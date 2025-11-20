@@ -15,7 +15,10 @@ public class VinculoTerrestre extends Transformacion {
 
 	@Override
 	public void entrenar(Integer intensidad) throws EnergiaExcedidaException {
-		criaturaBase.entrenar(intensidad);
+	    criaturaBase.entrenar(intensidad);
+	    if (criaturaBase.getNivelDeEnergia() < 50) {
+	        criaturaBase.setNivelDeEnergia(50);
+	    }
 	}
 
 }

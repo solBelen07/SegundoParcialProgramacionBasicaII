@@ -1,27 +1,22 @@
 package ar.edu.unlam.pb2.parcial;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import ar.edu.unlam.pb2.parcial.Criatura;
-import ar.edu.unlam.pb2.parcial.CriaturaDomestica;
-import ar.edu.unlam.pb2.parcial.CriaturaSalvaje;
-import ar.edu.unlam.pb2.parcial.EnergiaExcedidaException;
+import org.junit.Test;
 
-class CriaturaTest {
+public class CriaturaTest {
 
 	@Test
-	void queSePuedaCrearUnaCriatura() {
+	public void queSePuedaCrearUnaCriatura() {
 		Criatura nueva = new CriaturaSalvaje("salvaje", 90, "tierra");
 		assertNotNull(nueva);
 		assertTrue(nueva instanceof CriaturaSalvaje);
 	}
 
 	@Test
-	void queLanceUnaExcepcionAlSuperarLos200DeEnrgia() {
+	public void queLanceUnaExcepcionAlSuperarLos200DeEnrgia() {
 		Criatura nueva = new CriaturaSalvaje("salvaje", 190, "tierra");
 		boolean lanzoExcepcion = false;
 
@@ -35,7 +30,7 @@ class CriaturaTest {
 	}
 
 	@Test
-	void queSePuedaEntrenarUnaCriaturaSalvaje() throws EnergiaExcedidaException {
+	public void queSePuedaEntrenarUnaCriaturaSalvaje() throws EnergiaExcedidaException {
 		Criatura nueva = new CriaturaSalvaje("salvaje", 90, "tierra");
 		Integer energiaInicial = nueva.getNivelDeEnergia();
 			
@@ -46,7 +41,7 @@ class CriaturaTest {
 	}
 
 	@Test
-	void queSePuedaEntrenarUnaCriaturaDomesticaDeFormaEstable() throws EnergiaExcedidaException {
+	public void queSePuedaEntrenarUnaCriaturaDomesticaDeFormaEstable() throws EnergiaExcedidaException {
 		Criatura nueva = new CriaturaDomestica("salvaje", 90, "tierra");
 		Integer energiaInicial = nueva.getNivelDeEnergia();
 
@@ -57,7 +52,7 @@ class CriaturaTest {
 	}
 	
 	@Test
-	void queUnaCriaturaDomesticaNuncaSeaInestable() {
+	public void queUnaCriaturaDomesticaNuncaSeaInestable() {
 	    Criatura nueva = new CriaturaDomestica("domestica", 100, "agua");
 
 	    nueva.esPacifico(true);  // aunque le pases "true", debería quedar estable
