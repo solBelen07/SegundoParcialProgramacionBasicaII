@@ -1,6 +1,6 @@
 package ar.edu.unlam.pb2.parcial;
 
-public abstract class Criatura implements Interaccion{
+public abstract class Criatura implements Interaccion {
 
 	protected String nombre;
 	protected Integer nivelDeEnergia;
@@ -13,36 +13,41 @@ public abstract class Criatura implements Interaccion{
 		this.afinidadElemental = afinidadElemental;
 		this.inestable = false;
 	}
-	
+
 	public abstract void entrenar(Integer intensidad) throws EnergiaExcedidaException;
+
 	public abstract void esPacifico(Boolean inestable);
-	
-	
+
 	public void interactuar(Criatura otra) {
-		//si comparten afinidad
-		if(this.getAfinidadElemental().toLowerCase().equals(otra.getAfinidadElemental())) {
+		// si comparten afinidad
+		if (this.getAfinidadElemental().toUpperCase().equals(otra.getAfinidadElemental())) {
 			this.setNivelDeEnergia(this.nivelDeEnergia += 10);
 			otra.setNivelDeEnergia(otra.nivelDeEnergia += 10);
 			return;
 		}
-		// Si son opuestas (agua–fuego / aire–tierra)
-		if((this.getAfinidadElemental().toLowerCase().equals("agua") && 
-				otra.getAfinidadElemental().toLowerCase().equals("fuego")) || 
-				(this.getAfinidadElemental().toLowerCase().equals("aire") && 
-						otra.getAfinidadElemental().toLowerCase().equals("tierra"))){
-			this.setInestable(true);
-			otra.setInestable(true);
-			return;
-		}
-		//si una es ancestral siempre domina la situacion, gana 20e y la otra pierde 15e
-		if(this instanceof CriaturaAncestral) {
+
+		// si una es ancestral siempre domina la situacion, gana 20e y la otra pierde
+		// 15e
+		if (this instanceof CriaturaAncestral) {
 			this.setNivelDeEnergia(this.nivelDeEnergia += 20);
 			otra.setNivelDeEnergia(otra.nivelDeEnergia -= 15);
-			return;
-		}
-		if(otra instanceof CriaturaAncestral) {
+			
+		} if (otra instanceof CriaturaAncestral) {
 			otra.setNivelDeEnergia(otra.nivelDeEnergia += 20);
 			this.setNivelDeEnergia(this.nivelDeEnergia -= 15);
+			
+		}
+		// Si son opuestas (agua–fuego / aire–tierra)
+		if ((this.getAfinidadElemental().toUpperCase().equals("AGUA")
+				&& otra.getAfinidadElemental().toUpperCase().equals("FUEGO"))
+				|| (this.getAfinidadElemental().toUpperCase().equals("AIRE")
+						&& otra.getAfinidadElemental().toUpperCase().equals("TIERRA"))
+				|| (otra.getAfinidadElemental().toUpperCase().equals("AGUA")
+						&& this.getAfinidadElemental().toUpperCase().equals("FUEGO"))
+				|| (otra.getAfinidadElemental().toUpperCase().equals("AIRE")
+						&& this.getAfinidadElemental().toUpperCase().equals("TIERRA"))) {
+			this.setInestable(true);
+			otra.setInestable(true);
 			return;
 		}
 	}
@@ -78,6 +83,5 @@ public abstract class Criatura implements Interaccion{
 	public void setInestable(Boolean inestable) {
 		this.inestable = inestable;
 	}
-	
-	
+
 }
