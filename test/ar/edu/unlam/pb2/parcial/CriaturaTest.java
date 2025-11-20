@@ -15,7 +15,7 @@ public class CriaturaTest {
 		assertTrue(nueva instanceof CriaturaSalvaje);
 	}
 
-	//
+	
 	@Test
 	public void queLanceUnaExcepcionAlSuperarLos200DeEnrgia() {
 		Criatura nueva = new CriaturaSalvaje("salvaje", 190, "tierra");
