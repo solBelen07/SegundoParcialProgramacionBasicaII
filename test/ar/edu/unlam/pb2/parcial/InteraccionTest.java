@@ -20,7 +20,7 @@ public class InteraccionTest {
 		assertEquals(otra.getNivelDeEnergia(), (energiaInicialOtra + 10), 0);
 
 	}
-
+//
 	@Test
 	public void queDosCriaturasConDistintaAfinidadSeVuelvanInestables() {
 		Criatura nueva = new CriaturaSalvaje("salvaje", 90, "TIERRA");

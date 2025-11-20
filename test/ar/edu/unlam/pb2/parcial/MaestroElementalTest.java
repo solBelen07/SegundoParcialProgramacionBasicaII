@@ -10,7 +10,7 @@ import java.util.HashMap;
 import org.junit.Before;
 public class MaestroElementalTest {
 	
-
+//
 	private MaestroElemental maestro;
     private CriaturaSalvaje salvaje;
     private CriaturaDomestica domestica;

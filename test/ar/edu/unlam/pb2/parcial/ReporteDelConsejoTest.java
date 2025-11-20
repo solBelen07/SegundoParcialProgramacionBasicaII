@@ -192,7 +192,7 @@ public class ReporteDelConsejoTest {
 
 		maestroBajo.entrenarCriatura("uno", 20);
 	}
-
+//
 	@Test
 	public void quePacificarCriaturaLaVuelvaNoInestable() {
 		MaestroElemental maestroUno = new MaestroElemental("Pablo", 15, "FUEGO");

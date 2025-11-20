@@ -114,5 +114,5 @@ public class TransformacionTest {
 		assertEquals("criaturaDos", ascenso.getNombre());
 		assertEquals(criaturaDos.getNivelDeEnergia(), ascenso.getNivelDeEnergia());
 	}
-
+//
 }
