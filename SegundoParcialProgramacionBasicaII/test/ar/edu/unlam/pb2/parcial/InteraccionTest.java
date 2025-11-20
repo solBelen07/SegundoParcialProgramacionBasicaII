@@ -10,10 +10,10 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
-class InteraccionTest {
+public class InteraccionTest {
 
 	@Test
-	void queDosCriaturasConMismaAfinidadInteractuen() {
+	public void queDosCriaturasConMismaAfinidadInteractuen() {
 		Criatura nueva = new CriaturaSalvaje("salvaje", 90, "TIERRA");
 		Criatura otra = new CriaturaDomestica("pikachu", 70, "TIERRA");
 		Integer energiaInicialNueva = nueva.getNivelDeEnergia();
@@ -27,7 +27,7 @@ class InteraccionTest {
 	}
 	
 	@Test
-	void queDosCriaturasConDistintaAfinidadSeVuelvanInestables() {
+	public void queDosCriaturasConDistintaAfinidadSeVuelvanInestables() {
 		Criatura nueva = new CriaturaSalvaje("salvaje", 90, "TIERRA");
 		Criatura otra = new CriaturaDomestica("pikachu", 70, "AIRE");
 		
@@ -39,7 +39,7 @@ class InteraccionTest {
 	}
 	
 	@Test
-	void queDosCriaturasConDistintaAfinidadSeVuelvanInestables2() {
+	public void queDosCriaturasConDistintaAfinidadSeVuelvanInestables2() {
 		Criatura nueva = new CriaturaSalvaje("salvaje", 90, "Agua");
 		Criatura otra = new CriaturaDomestica("pikachu", 70, "fuego");
 		
@@ -51,7 +51,7 @@ class InteraccionTest {
 	}
 	
 	@Test
-	void queDosCriaturasInteractuenSiendoLaPrimeraAncestral() {
+	public void queDosCriaturasInteractuenSiendoLaPrimeraAncestral() {
 		Criatura nueva = new CriaturaAncestral("salvaje", 90, "Agua");
 		Criatura otra = new CriaturaDomestica("pikachu", 70, "fuego");
 		
@@ -65,7 +65,7 @@ class InteraccionTest {
 	}
 	
 	@Test
-	void queDosCriaturasInteractuenSiendoLaSegundaAncestral() {
+	public void queDosCriaturasInteractuenSiendoLaSegundaAncestral() {
 		Criatura nueva = new CriaturaDomestica("salvaje", 90, "Agua");
 		Criatura otra = new CriaturaAncestral("pikachu", 70, "fuego");
 		
@@ -79,7 +79,7 @@ class InteraccionTest {
 	}
 	
 	@Test
-	void queDosCriaturasInteractuenUnaSiendoAncestralYAdemasSiendoIncompatibles() {
+	public void queDosCriaturasInteractuenUnaSiendoAncestralYAdemasSiendoIncompatibles() {
 		Criatura nueva = new CriaturaAncestral("salvaje", 90, "Agua");
 		Criatura otra = new CriaturaDomestica("pikachu", 70, "fuego");
 		

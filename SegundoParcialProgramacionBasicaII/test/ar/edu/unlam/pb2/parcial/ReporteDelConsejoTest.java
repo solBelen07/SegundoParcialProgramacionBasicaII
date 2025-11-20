@@ -10,10 +10,10 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
-class ReporteDelConsejoTest {
+public class ReporteDelConsejoTest {
 
 	@Test
-	void queSePuedanAgregarALaListaLasCriaturasDeLosMaestros() {
+	public void queSePuedanAgregarALaListaLasCriaturasDeLosMaestros() {
 		MaestroElemental maestroUno = new MaestroElemental("Pablo", 300, "FUEGO");
 		MaestroElemental maestroDos = new MaestroElemental("Lautaro", 200, "AIRE");
 
@@ -42,7 +42,7 @@ class ReporteDelConsejoTest {
 	}
 
 	@Test
-	void queSePuedanVerLaCriaturaConMasEnergiaDeLosMaestros() {
+	public void queSePuedanVerLaCriaturaConMasEnergiaDeLosMaestros() {
 		MaestroElemental maestroUno = new MaestroElemental("Pablo", 300, "FUEGO");
 		MaestroElemental maestroDos = new MaestroElemental("Lautaro", 200, "AIRE");
 
