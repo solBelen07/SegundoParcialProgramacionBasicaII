@@ -1,10 +1,10 @@
-package ar.edu.unlam.pb2;
+package ar.edu.unlam.pb2.parcial;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 class CriaturaTest {
+	
+	//HACER LO DE @BEFORE
 
 	@Test
 	void queSePuedaCrearUnaCriatura() {

@@ -15,8 +15,10 @@ public abstract class Criatura {
 	}
 	
 	public abstract void entrenar(Integer intensidad) throws EnergiaExcedidaException;
-	public abstract void esPacifico(Boolean inestable);
 
+	public void esPacifico(Boolean inestable) {
+	    this.inestable = inestable;
+	}
 	public String getNombre() {
 		return nombre;
 	}
