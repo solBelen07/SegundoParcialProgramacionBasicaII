@@ -48,5 +48,14 @@ class CriaturaTest {
 		assertTrue(nueva.getNivelDeEnergia() >= energiaInicial + 10);
 		assertTrue(nueva.getNivelDeEnergia() <= energiaInicial + 20);
 	}
+	
+	@Test
+	void queUnaCriaturaDomesticaNuncaSeaInestable() {
+	    Criatura nueva = new CriaturaDomestica("domestica", 100, "agua");
+
+	    nueva.esPacifico(true);  // aunque le pases "true", debería quedar estable
+
+	    assertFalse(nueva.getInestable());
+	}
 
 }
