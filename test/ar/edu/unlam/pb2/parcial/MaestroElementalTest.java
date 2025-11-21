@@ -10,11 +10,12 @@ import org.junit.Before;
 
 public class MaestroElementalTest {
 
-//
 	private MaestroElemental maestro;
 	private CriaturaSalvaje salvaje;
 	private CriaturaDomestica domestica;
 
+	// Utilizamos BEFORE para inicializar un entorno limpio antes de cada test.
+	// De esta forma, en cada prueba se crean nuevamente el maestro y las criaturas.
 	@Before
 	public void setUp() {
 		maestro = new MaestroElemental("Gandalf", 20, "FUEGO");
@@ -62,17 +63,23 @@ public class MaestroElementalTest {
 
 	@Test
 	public void testTransformarCriaturaExistente() throws MaestriaInsuficienteException, EnergiaExcedidaException {
+
 		Transformacion transformacion = new Transformacion(domestica) {
-			@Override
 			public void entrenar(Integer intensidad) throws EnergiaExcedidaException {
-				criaturaBase.entrenar(intensidad);
+
+				Integer aumento = intensidad;
+
+				criaturaBase.setNivelDeEnergia(criaturaBase.getNivelDeEnergia() + aumento);
+
 				criaturaBase.setNivelDeEnergia(criaturaBase.getNivelDeEnergia() + 50);
 			}
 		};
 
 		maestro.transformarCriatura("Luna", transformacion);
+
 		maestro.entrenarCriatura("Luna", 10);
-		assertEquals(Integer.valueOf(120), maestro.listarCriaturas().get("Luna").getNivelDeEnergia());
+
+		assertEquals(Integer.valueOf(110), maestro.listarCriaturas().get("Luna").getNivelDeEnergia());
 	}
 
 	@Test

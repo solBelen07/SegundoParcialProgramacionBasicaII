@@ -7,12 +7,13 @@ public class CriaturaDomestica extends Criatura {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
+
 	public void entrenar(Integer intensidad) {
+	    entrenar(intensidad, 1); 
+	}
 
-		Integer aumento = intensidad * (1 + (int) (Math.random() * 2));
-		this.nivelDeEnergia += aumento;
-
+	public void entrenar(Integer intensidad, int multiplicador) {
+	    this.nivelDeEnergia += intensidad * multiplicador;
 	}
 
 	@Override
