@@ -57,11 +57,7 @@ public abstract class Criatura implements Interaccion {
 	public String getNombre() {
 		return nombre;
 	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
+	
 	public Integer getNivelDeEnergia() {
 		return nivelDeEnergia;
 	}
@@ -86,6 +82,4 @@ public abstract class Criatura implements Interaccion {
 		this.inestable = inestable;
 	}
 
-	
-	
 }

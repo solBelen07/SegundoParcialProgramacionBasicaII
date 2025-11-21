@@ -1,7 +1,9 @@
 package ar.edu.unlam.pb2.parcial;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ReporteDelConsejo {
 
@@ -35,18 +37,35 @@ public class ReporteDelConsejo {
 
 		return criaturaConMayorEnergia;
 	}
-	
+
 	// Determinar qué maestro tiene más criaturas transformadas.
 	public MaestroElemental getMaestroConMasCriaturasTransformadas() {
-		MaestroElemental maestroConMasTransformaciones = null; 
-		
-		Integer cantidad = 0;
-		
+		MaestroElemental maestroConMasTransformaciones = null;
+		Integer max = 0;
+
 		for (MaestroElemental maestro : listaMaestros) {
-			cantidad = (maestro.contarCriaturasTransformadas());
-		
+			Integer cantidad = maestro.contarCriaturasTransformadas();
+
+			if (maestroConMasTransformaciones == null || cantidad > max) {
+				max = cantidad;
+				maestroConMasTransformaciones = maestro;
+			}
 		}
-		
+
 		return maestroConMasTransformaciones;
+	}
+
+	// Mapa con la cantidad de criaturas por afinidad elemental.
+	public Map<String, Integer> getCantidadCriaturasPorAfinidad() {
+		Map<String, Integer> mapa = new HashMap<>();
+
+		for (Criatura criatura : getListaDeCriaturas()) {
+
+			String afinidad = criatura.getAfinidadElemental();
+
+			mapa.put(afinidad, mapa.getOrDefault(afinidad, 0) + 1);
+		}
+
+		return mapa;
 	}
 }

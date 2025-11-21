@@ -80,8 +80,8 @@ public class InteraccionTest {
 	
 	@Test
 	public void queDosCriaturasInteractuenUnaSiendoAncestralYAdemasSiendoIncompatibles() {
-		Criatura nueva = new CriaturaAncestral("salvaje", 90, "Agua");
-		Criatura otra = new CriaturaDomestica("pikachu", 70, "fuego");
+		Criatura nueva = new CriaturaAncestral("salvaje", 90, "Tierra");
+		Criatura otra = new CriaturaDomestica("pikachu", 70, "Aire");
 		
 		Integer energiaInicialNueva = nueva.getNivelDeEnergia();
 		Integer energiaInicialOtra = otra.getNivelDeEnergia();
