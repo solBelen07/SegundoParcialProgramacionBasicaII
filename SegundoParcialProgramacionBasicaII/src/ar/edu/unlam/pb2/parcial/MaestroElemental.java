@@ -80,7 +80,7 @@ public class MaestroElemental {
 		return mapa;
 	}
 
-	//
+	
 	public String getNombre() {
 		return nombre;
 	}

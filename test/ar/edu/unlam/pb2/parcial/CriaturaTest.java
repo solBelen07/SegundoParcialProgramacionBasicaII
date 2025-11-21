@@ -62,5 +62,46 @@ public class CriaturaTest {
 
 		assertFalse(nueva.getInestable());
 	}
+	@Test
+	public void queDosCriaturasConAfinidadIgualGanenEnergiaAlInteractuar() {
+	    Criatura c1 = new CriaturaSalvaje("Roco", 100, "FUEGO");
+	    Criatura c2 = new CriaturaDomestica("Luna", 80, "fuego");
+
+	    Integer energiaInicial1 = c1.getNivelDeEnergia();
+	    Integer energiaInicial2 = c2.getNivelDeEnergia();
+
+	    c1.interactuar(c2);
+
+	    assertTrue(c1.getNivelDeEnergia().equals(energiaInicial1 + 10));
+	    assertTrue(c2.getNivelDeEnergia().equals(energiaInicial2 + 10));
+	}
+	@Test
+	public void queDosCriaturasConAfinidadesOpuestasQuedenInestables() {
+	    Criatura CriaturaAgua = new CriaturaSalvaje("Roco", 90, "AGUA");
+	    Criatura CriaturaFuego = new CriaturaDomestica("Luna", 70, "FUEGO");
+
+	    CriaturaAgua.interactuar(CriaturaFuego);
+
+	    assertTrue(CriaturaAgua.getInestable());
+	    assertTrue(CriaturaFuego.getInestable());
+	}
+	@Test
+	public void queUnaCriaturaAncestralDomineLaSituacion() {
+	    Criatura c1 = new CriaturaAncestral("Dragon", 150, "AIRE");
+	    Criatura c2 = new CriaturaDomestica("Perro", 100, "TIERRA");
+
+	    Integer energiaInicialAncestral = c1.getNivelDeEnergia();
+	    Integer energiaInicialOtra = c2.getNivelDeEnergia();
+
+	    c1.interactuar(c2);
+
+	    assertTrue(c1.getNivelDeEnergia().equals(energiaInicialAncestral + 20));
+
+	    assertTrue(c2.getNivelDeEnergia().equals(energiaInicialOtra - 15));
+	}
+
+	
+	
+
 
 }

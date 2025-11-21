@@ -21,33 +21,37 @@ public abstract class Criatura implements Interaccion {
 	public abstract void esPacifico(Boolean inestable);
 
 	public void interactuar(Criatura otra) {
-		// si comparten afinidad
-		if (this.getAfinidadElemental().toUpperCase().equals(otra.getAfinidadElemental())) {
-			this.setNivelDeEnergia(this.nivelDeEnergia += 10);
-			otra.setNivelDeEnergia(otra.nivelDeEnergia += 10);
+
+		String afinidad = this.getAfinidadElemental().toUpperCase();
+		String afinidadOtra = otra.getAfinidadElemental().toUpperCase();
+
+		// Afinidad compartida
+		if (afinidad.equals(afinidadOtra)) {
+			this.setNivelDeEnergia(this.nivelDeEnergia + 10);
+			otra.setNivelDeEnergia(otra.nivelDeEnergia + 10);
 			return;
 		}
 
-		// si una es ancestral siempre domina la situacion, gana 20e y la otra pierde
-		// 15e
+		// Si una es ancestral domina la situación
 		if (this instanceof CriaturaAncestral) {
-			this.setNivelDeEnergia(this.nivelDeEnergia += 20);
-			otra.setNivelDeEnergia(otra.nivelDeEnergia -= 15);
-			
-		} if (otra instanceof CriaturaAncestral) {
-			otra.setNivelDeEnergia(otra.nivelDeEnergia += 20);
-			this.setNivelDeEnergia(this.nivelDeEnergia -= 15);
-			
+			this.setNivelDeEnergia(this.nivelDeEnergia + 20);
+			otra.setNivelDeEnergia(otra.nivelDeEnergia - 15);
+			return;
 		}
-		// Si son opuestas (agua–fuego / aire–tierra)
-		if ((this.getAfinidadElemental().toUpperCase().equals("AGUA")
-				&& otra.getAfinidadElemental().toUpperCase().equals("FUEGO"))
-				|| (this.getAfinidadElemental().toUpperCase().equals("AIRE")
-						&& otra.getAfinidadElemental().toUpperCase().equals("TIERRA"))
-				|| (otra.getAfinidadElemental().toUpperCase().equals("AGUA")
-						&& this.getAfinidadElemental().toUpperCase().equals("FUEGO"))
-				|| (otra.getAfinidadElemental().toUpperCase().equals("AIRE")
-						&& this.getAfinidadElemental().toUpperCase().equals("TIERRA"))) {
+
+		if (otra instanceof CriaturaAncestral) {
+			otra.setNivelDeEnergia(otra.nivelDeEnergia + 20);
+			this.setNivelDeEnergia(this.nivelDeEnergia - 15);
+			return;
+		}
+
+		// Elementos opuestos
+		boolean sonOpuestos = (afinidad.equals("AGUA") && afinidadOtra.equals("FUEGO"))
+				|| (afinidad.equals("FUEGO") && afinidadOtra.equals("AGUA"))
+				|| (afinidad.equals("AIRE") && afinidadOtra.equals("TIERRA"))
+				|| (afinidad.equals("TIERRA") && afinidadOtra.equals("AIRE"));
+
+		if (sonOpuestos) {
 			this.setInestable(true);
 			otra.setInestable(true);
 			return;
@@ -57,7 +61,7 @@ public abstract class Criatura implements Interaccion {
 	public String getNombre() {
 		return nombre;
 	}
-	
+
 	public Integer getNivelDeEnergia() {
 		return nivelDeEnergia;
 	}
@@ -83,4 +87,3 @@ public abstract class Criatura implements Interaccion {
 	}
 
 }
-

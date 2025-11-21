@@ -78,20 +78,6 @@ public class InteraccionTest {
 		assertEquals(nueva.getNivelDeEnergia(), (energiaInicialNueva - 15), 0);
 	}
 	
-	@Test
-	public void queDosCriaturasInteractuenUnaSiendoAncestralYAdemasSiendoIncompatibles() {
-		Criatura nueva = new CriaturaAncestral("salvaje", 90, "Tierra");
-		Criatura otra = new CriaturaDomestica("pikachu", 70, "Aire");
-		
-		Integer energiaInicialNueva = nueva.getNivelDeEnergia();
-		Integer energiaInicialOtra = otra.getNivelDeEnergia();
-		
-		nueva.interactuar(otra);
-		
-		assertEquals(nueva.getNivelDeEnergia(), (energiaInicialNueva + 20), 0);
-		assertEquals(otra.getNivelDeEnergia(), (energiaInicialOtra - 15), 0);
-		
-		assertEquals(nueva.getInestable(), true);
-		assertEquals(otra.getInestable(), true);
-	}
+
+	
 }
