@@ -32,9 +32,9 @@ public class MaestroElemental {
 	}
 
 	public void pacificarCriatura(String nombreCriatura) {
-		Criatura criatura = criaturasACargo.get(nombreCriatura);
+		Criatura criatura = criaturasACargo.get(nombreCriatura);	
 		if (criatura != null) {
-			criatura.esPacifico(false);
+			criaturasACargo.get(nombreCriatura).setInestable(false);
 		}
 	}
 
