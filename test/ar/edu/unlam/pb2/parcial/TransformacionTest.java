@@ -88,4 +88,5 @@ public class TransformacionTest {
 		assertTrue(criatura.getAfinidadElemental().contains("AIRE"));
 	}
 
+	
 }

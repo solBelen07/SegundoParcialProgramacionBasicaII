@@ -9,7 +9,7 @@ public class CriaturaAncestral extends Criatura {
 
 	@Override
 	public void entrenar(Integer intensidad) {
-		Integer aumento = intensidad * (1 + (int) (Math.random() * 1));
+		Integer aumento = intensidad * (1 + (int) (Math.random() * 2));
 		this.nivelDeEnergia += aumento;
 	}
 

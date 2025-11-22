@@ -6,9 +6,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import ar.edu.unlam.pb2.parcial.CriaturaSalvaje;
-import ar.edu.unlam.pb2.parcial.EnergiaExcedidaException;
-
 public class CriaturaTest {
 
 	@Test
@@ -24,9 +21,9 @@ public class CriaturaTest {
 		boolean lanzoExcepcion = false;
 
 		try {
-			nueva.entrenar(20); // debería superar 200
+			nueva.entrenar(20);
 		} catch (EnergiaExcedidaException e) {
-			lanzoExcepcion = true; // marco que la lanzó
+			lanzoExcepcion = true;
 		}
 
 		assertTrue(lanzoExcepcion);
@@ -62,46 +59,72 @@ public class CriaturaTest {
 
 		assertFalse(nueva.getInestable());
 	}
+
 	@Test
 	public void queDosCriaturasConAfinidadIgualGanenEnergiaAlInteractuar() {
-	    Criatura c1 = new CriaturaSalvaje("Roco", 100, "FUEGO");
-	    Criatura c2 = new CriaturaDomestica("Luna", 80, "fuego");
+		Criatura c1 = new CriaturaSalvaje("Roco", 100, "FUEGO");
+		Criatura c2 = new CriaturaDomestica("Luna", 80, "fuego");
 
-	    Integer energiaInicial1 = c1.getNivelDeEnergia();
-	    Integer energiaInicial2 = c2.getNivelDeEnergia();
+		Integer energiaInicial1 = c1.getNivelDeEnergia();
+		Integer energiaInicial2 = c2.getNivelDeEnergia();
 
-	    c1.interactuar(c2);
+		c1.interactuar(c2);
 
-	    assertTrue(c1.getNivelDeEnergia().equals(energiaInicial1 + 10));
-	    assertTrue(c2.getNivelDeEnergia().equals(energiaInicial2 + 10));
+		assertTrue(c1.getNivelDeEnergia().equals(energiaInicial1 + 10));
+		assertTrue(c2.getNivelDeEnergia().equals(energiaInicial2 + 10));
 	}
+
 	@Test
 	public void queDosCriaturasConAfinidadesOpuestasQuedenInestables() {
-	    Criatura CriaturaAgua = new CriaturaSalvaje("Roco", 90, "AGUA");
-	    Criatura CriaturaFuego = new CriaturaDomestica("Luna", 70, "FUEGO");
+		Criatura CriaturaAgua = new CriaturaSalvaje("Roco", 90, "AGUA");
+		Criatura CriaturaFuego = new CriaturaDomestica("Luna", 70, "FUEGO");
 
-	    CriaturaAgua.interactuar(CriaturaFuego);
+		CriaturaAgua.interactuar(CriaturaFuego);
 
-	    assertTrue(CriaturaAgua.getInestable());
-	    assertTrue(CriaturaFuego.getInestable());
+		assertTrue(CriaturaAgua.getInestable());
+		assertTrue(CriaturaFuego.getInestable());
 	}
+
 	@Test
-	public void queUnaCriaturaAncestralDomineLaSituacion() {
-	    Criatura c1 = new CriaturaAncestral("Dragon", 150, "AIRE");
-	    Criatura c2 = new CriaturaDomestica("Perro", 100, "TIERRA");
+	public void queUnaCriaturaAncestralDomineLaInteraccion() {
+		Criatura c1 = new CriaturaAncestral("Dragon", 150, "AIRE");
+		Criatura c2 = new CriaturaDomestica("Perro", 100, "TIERRA");
 
-	    Integer energiaInicialAncestral = c1.getNivelDeEnergia();
-	    Integer energiaInicialOtra = c2.getNivelDeEnergia();
+		Integer energiaInicialAncestral = c1.getNivelDeEnergia();
+		Integer energiaInicialOtra = c2.getNivelDeEnergia();
 
-	    c1.interactuar(c2);
+		c1.interactuar(c2);
 
-	    assertTrue(c1.getNivelDeEnergia().equals(energiaInicialAncestral + 20));
+		assertTrue(c1.getNivelDeEnergia().equals(energiaInicialAncestral + 20));
 
-	    assertTrue(c2.getNivelDeEnergia().equals(energiaInicialOtra - 15));
+		assertTrue(c2.getNivelDeEnergia().equals(energiaInicialOtra - 15));
 	}
 
-	
-	
+	@Test
+	public void queEntrenarAumenteElNivelDeEnergia() {
+		CriaturaAncestral ancestral = new CriaturaAncestral("Dragon", 10, "Fuego");
 
+		Integer intensidad = 5;
+		Integer energiaInicial = ancestral.getNivelDeEnergia();
+
+		ancestral.entrenar(intensidad);
+
+		Integer energiaFinal = ancestral.getNivelDeEnergia();
+
+		Integer aumentoMin = intensidad * 1; 
+		Integer aumentoMax = intensidad * 2; 
+
+		// Verifico que esté dentro del rango
+		assertTrue(energiaFinal >= energiaInicial + aumentoMin && energiaFinal <= energiaInicial + aumentoMax);
+	}
+
+	@Test
+	public void queLaCriaturaSeaPacificoSiempreQuedeNoInestable() { // Que quede en false.
+		CriaturaAncestral ancestral = new CriaturaAncestral("Dragon", 20, "Agua");
+
+		ancestral.esPacifico(true);
+
+		assertFalse(ancestral.getInestable());
+	}
 
 }

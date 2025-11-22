@@ -81,16 +81,5 @@ public class MaestroElemental {
 	}
 
 	
-	public String getNombre() {
-		return nombre;
-	}
-
-	public Integer getNivelMaestria() {
-		return nivelMaestria;
-	}
-
-	public String getAfinidadPrincipal() {
-		return afinidadPrincipal;
-	}
 
 }
