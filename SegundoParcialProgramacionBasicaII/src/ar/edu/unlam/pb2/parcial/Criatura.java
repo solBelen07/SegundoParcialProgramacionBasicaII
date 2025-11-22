@@ -57,6 +57,8 @@ public abstract class Criatura implements Interaccion {
 			return;
 		}
 	}
+	
+	
 
 	public String getNombre() {
 		return nombre;
