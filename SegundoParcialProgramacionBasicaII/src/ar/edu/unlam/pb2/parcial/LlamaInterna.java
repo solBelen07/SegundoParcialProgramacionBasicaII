@@ -20,5 +20,4 @@ public class LlamaInterna extends Transformacion {
 		criaturaBase.entrenar(intensidad);
 	}
 
-	
 }

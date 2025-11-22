@@ -80,6 +80,4 @@ public class MaestroElemental {
 		return mapa;
 	}
 
-	
-
 }

@@ -36,13 +36,13 @@ public abstract class Criatura implements Interaccion {
 		if (this instanceof CriaturaAncestral) {
 			this.setNivelDeEnergia(this.nivelDeEnergia + 20);
 			otra.setNivelDeEnergia(otra.nivelDeEnergia - 15);
-			return;
+			
 		}
 
 		if (otra instanceof CriaturaAncestral) {
 			otra.setNivelDeEnergia(otra.nivelDeEnergia + 20);
 			this.setNivelDeEnergia(this.nivelDeEnergia - 15);
-			return;
+		
 		}
 
 		// Elementos opuestos
