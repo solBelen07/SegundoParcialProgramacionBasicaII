@@ -31,6 +31,7 @@ public class MaestroElemental {
 		}
 	}
 
+	
 	public void pacificarCriatura(String nombreCriatura) {
 		Criatura criatura = criaturasACargo.get(nombreCriatura);	
 		if (criatura != null) {
@@ -77,19 +78,6 @@ public class MaestroElemental {
 			mapa.put(afinidad, mapa.getOrDefault(afinidad, 0) + 1);
 		}
 		return mapa;
-	}
-
-	//
-	public String getNombre() {
-		return nombre;
-	}
-
-	public Integer getNivelMaestria() {
-		return nivelMaestria;
-	}
-
-	public String getAfinidadPrincipal() {
-		return afinidadPrincipal;
 	}
 
 }
